@@ -4,7 +4,7 @@
 
 # Configuration
 BUCKET_NAME="plantnxt-frontend-mvp"
-REGION="us-east-1"
+REGION="ap-south-1"
 DISTRIBUTION_ID="your-cloudfront-distribution-id"
 
 echo "🚀 Deploying PlantNxt Frontend to AWS S3..."
@@ -47,5 +47,5 @@ if [ ! -z "$DISTRIBUTION_ID" ]; then
 fi
 
 echo "🎉 Deployment completed successfully!"
-echo "🌐 Your app should be available at: https://$BUCKET_NAME.s3-website-$REGION.amazonaws.com"
+echo "🌐 Your app should be available at: http://$BUCKET_NAME.s3-website-$REGION.amazonaws.com"
 echo "🔗 Or your custom domain if configured"

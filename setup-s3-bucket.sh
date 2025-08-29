@@ -3,7 +3,7 @@
 # PlantNxt S3 Bucket Setup Script
 
 BUCKET_NAME="plantnxt-frontend-mvp"
-REGION="us-east-1"
+REGION="ap-south-1"
 
 echo "🔧 Setting up S3 bucket: $BUCKET_NAME"
 

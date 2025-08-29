@@ -1,8 +1,14 @@
 [
-    {
-        "AllowedHeaders": ["*"],
-        "AllowedMethods": ["GET"],
-        "AllowedOrigins": ["*"],
-        "ExposeHeaders": []
-    }
+  {
+    "AllowedHeaders": [
+      "*"
+    ],
+    "AllowedMethods": [
+      "GET"
+    ],
+    "AllowedOrigins": [
+      "*"
+    ],
+    "ExposeHeaders": []
+  }
 ]
