@@ -101,7 +101,7 @@ export default function NaturalLanguageQuery({
 
   return (
     <Card className={cn("", className)}>
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         <div className="space-y-4">
           {/* Header */}
           <div className="flex items-center space-x-2 mb-4">
@@ -120,26 +120,26 @@ export default function NaturalLanguageQuery({
 
               <Input
                 prefix={<SearchIcon className="h-4 w-4 text-gray-400" />}
-                suffix={<div className="flex items-center space-x-1">
+                suffix={<div className="flex items-center space-x-1 min-w-0">
                   <Button
                     type="button"
                     size="small"
                     variant="ghost"
                     onClick={handleVoiceInput}
                     className={cn(
-                      "p-2 h-8 w-8",
+                      "p-1.5 h-7 w-7 flex-shrink-0",
                       isListening && "bg-red-100 text-red-600 animate-pulse"
                     )}
                   >
-                    <MicIcon className="h-4 w-4" />
+                    <MicIcon className="h-3 w-3" />
                   </Button>
                   <Button
                     type="submit"
                     size="small"
                     disabled={!query.trim()}
-                    className="p-2 h-8 w-8"
+                    className="p-1.5 h-7 w-7 flex-shrink-0"
                   >
-                    <SendIcon className="h-4 w-4" />
+                    <SendIcon className="h-3 w-3" />
                   </Button>
                 </div>}
                 value={query}
@@ -148,7 +148,7 @@ export default function NaturalLanguageQuery({
                   setShowSuggestions(e.target.value.length === 0);
                 }}
                 placeholder="Ask about production, quality, downtime, or any operational question..."
-                className="pl-10 pr-20 py-3 text-base"
+                className="pl-10 pr-16 py-3 text-base w-full"
                 onFocus={() => setShowSuggestions(query.length === 0)}
               />
             </div>
@@ -170,7 +170,7 @@ export default function NaturalLanguageQuery({
               <h4 className="text-sm font-medium text-gray-700">
                 Popular Questions
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {suggestions.map((suggestion) => (
                   <button
                     key={suggestion.id}
@@ -209,6 +209,7 @@ export default function NaturalLanguageQuery({
                   category: "performance",
                 })
               }
+              className="text-xs px-2 py-1 h-8"
             >
               Today's Summary
             </Button>
@@ -222,6 +223,7 @@ export default function NaturalLanguageQuery({
                   category: "maintenance",
                 })
               }
+              className="text-xs px-2 py-1 h-8"
             >
               Critical Issues
             </Button>
@@ -235,6 +237,7 @@ export default function NaturalLanguageQuery({
                   category: "performance",
                 })
               }
+              className="text-xs px-2 py-1 h-8"
             >
               Top Performer
             </Button>
