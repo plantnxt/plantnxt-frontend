@@ -148,7 +148,7 @@ export default function NaturalLanguageQuery({
                   setShowSuggestions(e.target.value.length === 0);
                 }}
                 placeholder="Ask about production, quality, downtime, or any operational question..."
-                className="pl-10 pr-16 py-3 text-base w-full"
+                className="p-2 text-base w-full"
                 onFocus={() => setShowSuggestions(query.length === 0)}
               />
             </div>

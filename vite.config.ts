@@ -8,9 +8,14 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     strictPort: true,
-    // Allow access via app.plantnxt.com
+    // Hot reload configuration
     hmr: {
-      host: 'app.plantnxt.com'
+      host: 'localhost',
+      port: 5173
+    },
+    // Enable file watching
+    watch: {
+      usePolling: true
     }
   },
   build: {
