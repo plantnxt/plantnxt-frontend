@@ -45,7 +45,7 @@ npm run preview
 
 ## 🌐 Deployment
 
-### AWS S3 (Recommended for Production)
+### AWS S3 with Custom Domain (Recommended for Production)
 
 **Quick Deploy:**
 
@@ -58,6 +58,17 @@ aws configure
 
 # Deploy to S3
 npm run deploy:s3
+```
+
+**Set up Custom Domain (app.plantnxt.com):**
+
+```bash
+# Complete setup with CloudFront and SSL
+./setup-custom-domain.sh
+
+# Or step by step:
+./setup-cloudfront.sh      # Create CloudFront distribution
+./setup-ssl-certificate.sh # Request SSL certificate
 ```
 
 **Using Deployment Script:**

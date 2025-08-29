@@ -5,7 +5,13 @@
 # Configuration
 BUCKET_NAME="plantnxt-frontend-mvp"
 REGION="ap-south-1"
-DISTRIBUTION_ID="your-cloudfront-distribution-id"
+
+# Load distribution ID from file if it exists
+if [ -f ".cloudfront-distribution-id" ]; then
+    DISTRIBUTION_ID=$(cat .cloudfront-distribution-id)
+else
+    DISTRIBUTION_ID=""
+fi
 
 echo "🚀 Deploying PlantNxt Frontend to AWS S3..."
 
