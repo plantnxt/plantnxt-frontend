@@ -183,27 +183,27 @@ const DashboardPage = () => {
 
         {/* Impact Analysis */}
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Impact Analysis Scenarios</h3>
+          <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">Impact Analysis Scenarios</h3>
           <div className="space-y-4">
             {mockImpactAnalysis.map((scenario, index) => (
-              <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-                <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">{scenario.scenario}</h4>
-                <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div>
+              <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg p-2">
+                <h4 className="font-medium text-sm  text-gray-900 dark:text-gray-100 mb-2">{scenario.scenario}</h4>
+                <div className="grid grid-cols-3 gap-2 text-xs">
+                  <div className="flex flex-col lg:flex-row lg:gap-1">
                     <span className="text-gray-600 dark:text-gray-400">OEE Change:</span>
-                    <span className={`ml-1 font-medium ${scenario.projectedOEE > scenario.currentOEE ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                    <span className={`font-medium ${scenario.projectedOEE > scenario.currentOEE ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                       {scenario.currentOEE}% → {scenario.projectedOEE}%
                     </span>
                   </div>
-                  <div>
+                  <div className="flex flex-col lg:flex-row">
                     <span className="text-gray-600 dark:text-gray-400">Revenue Impact:</span>
-                    <span className={`ml-1 font-medium ${scenario.impact.revenue > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                    <span className={`font-medium ${scenario.impact.revenue > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                       {formatCurrency(scenario.impact.revenue)}
                     </span>
                   </div>
-                  <div>
+                  <div className="flex flex-col lg:flex-row">
                     <span className="text-gray-600 dark:text-gray-400">Profit Impact:</span>
-                    <span className={`ml-1 font-medium ${scenario.impact.profit > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                    <span className={`font-medium ${scenario.impact.profit > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                       {formatCurrency(scenario.impact.profit)}
                     </span>
                   </div>

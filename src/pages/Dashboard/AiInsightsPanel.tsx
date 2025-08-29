@@ -76,17 +76,16 @@ export default function AIInsightsPanel({
   return (
     <Card className={cn("h-full", className)}>
       <CardHeader className="pb-3">
-        <CardTitle className="flex items-center space-x-2">
-          <BrainIcon className="h-5 w-5 text-blue-600" />
-
+        <CardTitle className="flex items-center gap-2">
+          <BrainIcon className="h-5 w-5 text-blue-600 flex-shrink-0" />
           <span>AI Insights</span>
-          <Badge variant="secondary" className="ml-auto">
+          <Badge variant="secondary" className="ml-auto text-xs">
             {insights.filter((i) => i.actionRequired).length} Action Required
           </Badge>
         </CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
-        <div className="space-y-4 max-h-96 overflow-y-auto">
+        <div className="space-y-3 max-h-96 overflow-y-auto pr-1">
           {insights.map((insight) => {
             const IconComponent = getInsightIcon(insight.type);
 
@@ -94,35 +93,34 @@ export default function AIInsightsPanel({
               <div
                 key={insight.id}
                 className={cn(
-                  "p-4 rounded-lg border transition-all duration-200 hover:shadow-md",
+                  "p-3 sm:p-4 rounded-lg border transition-all duration-200 hover:shadow-md",
                   insight.actionRequired
                     ? "bg-red-50 border-red-200"
                     : "bg-white border-gray-200"
                 )}
               >
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center space-x-2">
-                    <IconComponent className="h-4 w-4 text-gray-600" />
-
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <IconComponent className="h-4 w-4 text-gray-600 flex-shrink-0" />
                     <Badge
                       variant="outline"
-                      className={getTypeColor(insight.type)}
+                      className={cn(getTypeColor(insight.type), "text-xs")}
                     >
                       {insight.type}
                     </Badge>
                     <Badge
                       variant="outline"
-                      className={getImpactColor(insight.impact)}
+                      className={cn(getImpactColor(insight.impact), "text-xs")}
                     >
                       {insight.impact} impact
                     </Badge>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs text-gray-500">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-gray-500 whitespace-nowrap">
                       {insight.confidence}% confidence
                     </span>
                     {insight.actionRequired && (
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
                     )}
                   </div>
                 </div>
@@ -134,12 +132,12 @@ export default function AIInsightsPanel({
                   {insight.description}
                 </p>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                   <span className="text-xs text-gray-500">
                     {new Date(insight.timestamp).toLocaleTimeString()}
                   </span>
                   {insight.actionRequired && (
-                    <Button size="small" variant="outline" className="text-xs">
+                    <Button size="small" variant="outline" className="text-xs w-full sm:w-auto">
                       Take Action
                     </Button>
                   )}
@@ -150,11 +148,11 @@ export default function AIInsightsPanel({
         </div>
 
         <div className="mt-4 pt-4 border-t">
-          <div className="flex space-x-2">
-            <Button variant="outline" size="small" className="flex-1">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button variant="outline" size="small" className="flex-1 text-xs">
               What changed today?
             </Button>
-            <Button variant="outline" size="small" className="flex-1">
+            <Button variant="outline" size="small" className="flex-1 text-xs">
               Suggest focus areas
             </Button>
           </div>
