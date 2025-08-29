@@ -53,7 +53,7 @@ fi
 
 # 4. Get website endpoint
 echo "🌍 Getting website endpoint..."
-WEBSITE_ENDPOINT=$(aws s3api get-bucket-website --bucket $BUCKET_NAME --region $REGION --query 'WebsiteEndpoint' --output text)
+WEBSITE_ENDPOINT="$BUCKET_NAME.s3-website.$REGION.amazonaws.com"
 
 echo "🎉 S3 bucket setup completed!"
 echo "🌐 Website endpoint: http://$WEBSITE_ENDPOINT"

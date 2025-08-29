@@ -47,5 +47,5 @@ if [ ! -z "$DISTRIBUTION_ID" ]; then
 fi
 
 echo "🎉 Deployment completed successfully!"
-echo "🌐 Your app should be available at: http://$BUCKET_NAME.s3-website-$REGION.amazonaws.com"
+echo "🌐 Your app should be available at: http://$BUCKET_NAME.s3-website.$REGION.amazonaws.com"
 echo "🔗 Or your custom domain if configured"
