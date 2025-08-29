@@ -45,9 +45,38 @@ npm run preview
 
 ## 🌐 Deployment
 
-### Quick Deploy Options
+### AWS S3 (Recommended for Production)
 
-**Vercel (Recommended):**
+**Quick Deploy:**
+```bash
+# Install AWS CLI first
+npm install -g aws-cli
+
+# Configure AWS credentials
+aws configure
+
+# Deploy to S3
+npm run deploy:s3
+```
+
+**Using Deployment Script:**
+```bash
+# Edit deploy-s3.sh with your bucket name
+./deploy-s3.sh
+```
+
+**Manual Deployment:**
+```bash
+# Build
+npm run build
+
+# Upload to S3
+aws s3 sync dist/ s3://your-bucket-name --delete
+```
+
+### Other Deployment Options
+
+**Vercel:**
 ```bash
 npm install -g vercel
 vercel --prod
@@ -62,7 +91,6 @@ netlify deploy --prod --dir=dist
 **Manual Server:**
 1. Run `npm run build`
 2. Upload `dist/` contents to your web server
-3. Configure nginx with provided `nginx.conf`
 
 ## 📁 Project Structure
 
