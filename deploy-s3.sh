@@ -3,7 +3,7 @@
 # PlantNxt Frontend S3 Deployment Script
 
 # Configuration
-BUCKET_NAME="your-bucket-name"
+BUCKET_NAME="plantnxt-frontend-mvp"
 REGION="us-east-1"
 DISTRIBUTION_ID="your-cloudfront-distribution-id"
 
@@ -38,7 +38,7 @@ if [ ! -z "$DISTRIBUTION_ID" ]; then
         --distribution-id $DISTRIBUTION_ID \
         --paths "/*" \
         --region $REGION
-    
+
     if [ $? -eq 0 ]; then
         echo "✅ CloudFront cache invalidated!"
     else
