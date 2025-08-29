@@ -11,6 +11,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy:s3": "npm run build && aws s3 sync dist/ s3://plantnxt-frontend-mvp --delete --region ap-south-1",
+    "deploy": "./deploy.sh",
+    "deploy:status": "./check-deployment.sh",
     "deploy:s3:staging": "npm run build && aws s3 sync dist/ s3://plantnxt-frontend-mvp-staging --delete --region ap-south-1"
   },
   "dependencies": {
