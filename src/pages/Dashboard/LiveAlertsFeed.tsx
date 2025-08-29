@@ -170,6 +170,31 @@ export default function LiveAlertsFeed({
         </CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
+
+        {/* Summary */}
+        <div className="mb-4 pt-4 border-t">
+          <div className="grid grid-cols-3 gap-4 text-center text-sm">
+            <div>
+              <div className="font-semibold text-red-600">
+                {alerts.filter((a) => a.status === "active").length}
+              </div>
+              <div className="text-gray-600">Active</div>
+            </div>
+            <div>
+              <div className="font-semibold text-yellow-600">
+                {alerts.filter((a) => a.status === "acknowledged").length}
+              </div>
+              <div className="text-gray-600">Acknowledged</div>
+            </div>
+            <div>
+              <div className="font-semibold text-green-600">
+                {alerts.filter((a) => a.status === "resolved").length}
+              </div>
+              <div className="text-gray-600">Resolved</div>
+            </div>
+          </div>
+        </div>
+
         {/* Filters */}
         <div className="flex flex-wrap gap-2 mb-4 pb-4 border-b">
           <Select value={severityFilter} onValueChange={setSeverityFilter}>
@@ -294,29 +319,6 @@ export default function LiveAlertsFeed({
           )}
         </div>
 
-        {/* Summary */}
-        <div className="mt-4 pt-4 border-t">
-          <div className="grid grid-cols-3 gap-4 text-center text-sm">
-            <div>
-              <div className="font-semibold text-red-600">
-                {alerts.filter((a) => a.status === "active").length}
-              </div>
-              <div className="text-gray-600">Active</div>
-            </div>
-            <div>
-              <div className="font-semibold text-yellow-600">
-                {alerts.filter((a) => a.status === "acknowledged").length}
-              </div>
-              <div className="text-gray-600">Acknowledged</div>
-            </div>
-            <div>
-              <div className="font-semibold text-green-600">
-                {alerts.filter((a) => a.status === "resolved").length}
-              </div>
-              <div className="text-gray-600">Resolved</div>
-            </div>
-          </div>
-        </div>
       </CardContent>
     </Card>
   );

@@ -240,21 +240,21 @@ const DashboardPage = () => {
         />
 
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Left Column - AI Insights */}
           <div className="xl:col-span-1">
             <AIInsightsPanel insights={aiInsights} />
-          </div>
-
-          {/* Middle Column - Plant Comparison */}
-          <div className="xl:col-span-1">
-            <PlantComparisonGrid plants={plantsData} />
           </div>
 
           {/* Right Column - Live Alerts */}
           <div className="xl:col-span-1">
             <LiveAlertsFeed alerts={alertsData} />
           </div>
+        </div>
+
+        {/* Middle Column - Plant Comparison */}
+        <div>
+          <PlantComparisonGrid plants={plantsData} />
         </div>
 
         {/* AI Copilot Quick Actions */}
