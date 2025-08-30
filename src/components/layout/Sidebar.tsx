@@ -65,113 +65,164 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPath, 
   // Role-based navigation items
   const getNavigationItems = () => {
     const baseItems = [
+      // Operations Layer 1
       {
         name: 'Dashboard',
-        href: '/dashboard',
+        href: '/',
         icon: LayoutDashboard,
-        description: 'Overview and key metrics'
-      },
-      {
-        name: 'Analytics',
-        href: '/analytics',
-        icon: BarChart3,
-        description: 'Detailed performance analysis'
+        description: 'One-screen clarity of operations, insights, and actions',
+        phase: 'Phase 1',
+        group: 'Operations Layer 1'
       },
       {
         name: 'OEE Tracking',
         href: '/oee',
         icon: Target,
-        description: 'Overall Equipment Effectiveness'
+        description: 'Monitor availability, performance, and quality in real time',
+        phase: 'Phase 1',
+        group: 'Operations Layer 1'
       },
       {
         name: 'Production',
         href: '/production',
         icon: Factory,
-        description: 'Production metrics and planning'
+        description: 'Throughput, schedules, and bottleneck tracking',
+        phase: 'Phase 1',
+        group: 'Operations Layer 1'
       },
       {
         name: 'Quality',
         href: '/quality',
         icon: PieChart,
-        description: 'Quality metrics and control'
+        description: 'Defect trends, first-pass yield, and scrap analysis',
+        phase: 'Phase 1',
+        group: 'Operations Layer 1'
       },
       {
         name: 'Maintenance',
         href: '/maintenance',
         icon: Activity,
-        description: 'Equipment maintenance tracking'
+        description: 'Preventive, predictive, and corrective maintenance insights',
+        phase: 'Phase 1',
+        group: 'Operations Layer 1'
       },
       {
         name: 'Alerts',
         href: '/alerts',
         icon: AlertTriangle,
-        description: 'System alerts and notifications'
+        description: 'Central hub for downtime, quality, and risk alerts',
+        phase: 'Phase 1',
+        group: 'Operations Layer 1'
       },
-      {
-        name: 'Reports',
-        href: '/reports',
-        icon: FileText,
-        description: 'Generate and view reports'
-      },
+      // Decision Intelligence Layer
       {
         name: 'AI Copilot',
         href: '/copilot',
         icon: MessageSquare,
-        description: 'AI-powered insights and recommendations'
+        description: 'Ask anything, get root-cause answers and recommendations',
+        phase: 'Phase 1',
+        group: 'Decision Intelligence Layer'
+      },
+      {
+        name: 'Financial Impact',
+        href: '/financial-impact',
+        icon: TrendingUp,
+        description: 'Translate operational changes into revenue, profit, and cash impact',
+        phase: 'Phase 1',
+        group: 'Decision Intelligence Layer'
+      },
+      {
+        name: 'Scenario Planning',
+        href: '/scenario-planning',
+        icon: BarChart3,
+        description: '"What-if" simulations for OEE, downtime, and demand shifts',
+        phase: 'Phase 2',
+        group: 'Decision Intelligence Layer'
+      },
+      {
+        name: 'Optimization Opportunities',
+        href: '/optimization',
+        icon: TrendingUp,
+        description: 'AI-driven workload, capacity, and scheduling improvements',
+        phase: 'Phase 2',
+        group: 'Decision Intelligence Layer'
+      },
+      // Financial Layer
+      {
+        name: 'Statements',
+        href: '/statements',
+        icon: FileText,
+        description: 'View P&L, Balance Sheet, and Cashflow linked to ops performance',
+        phase: 'Phase 2',
+        group: 'Financial Layer'
+      },
+      {
+        name: 'Forecasting',
+        href: '/forecasting',
+        icon: TrendingUp,
+        description: 'Predict financial outcomes based on operational scenarios',
+        phase: 'Phase 3',
+        group: 'Financial Layer'
+      },
+      // Strategic & Governance Layer
+      {
+        name: 'Strategic Planning',
+        href: '/strategic-planning',
+        icon: Calendar,
+        description: 'Align plant performance with long-term goals',
+        phase: 'Phase 2',
+        group: 'Strategic & Governance Layer'
+      },
+      {
+        name: 'Reports & Compliance',
+        href: '/reports-compliance',
+        icon: FileText,
+        description: 'Standard exports, audit trails, and compliance packs',
+        phase: 'Phase 2',
+        group: 'Strategic & Governance Layer'
+      },
+      {
+        name: 'Sustainability & Energy',
+        href: '/sustainability',
+        icon: BarChart3,
+        description: 'CO₂ footprint, energy per unit, ESG compliance',
+        phase: 'Phase 3',
+        group: 'Strategic & Governance Layer'
+      },
+      // Admin & Ecosystem Layer
+      {
+        name: 'Organization & Plants',
+        href: '/organization',
+        icon: MapPin,
+        description: 'Multi-plant, multi-BU structure and hierarchy',
+        phase: 'Phase 1',
+        group: 'Admin & Ecosystem Layer'
+      },
+      {
+        name: 'Users & Roles',
+        href: '/users-roles',
+        icon: Users,
+        description: 'Enterprise-grade access control and SSO',
+        phase: 'Phase 1',
+        group: 'Admin & Ecosystem Layer'
+      },
+      {
+        name: 'Integrations',
+        href: '/integrations',
+        icon: Package,
+        description: 'Connect ERP, MES, PLC, and data lakes',
+        phase: 'Phase 2',
+        group: 'Admin & Ecosystem Layer'
+      },
+      {
+        name: 'Settings',
+        href: '/settings',
+        icon: BarChart3,
+        description: 'Notifications, preferences, and AI configurations',
+        phase: 'Phase 1',
+        group: 'Admin & Ecosystem Layer'
       }
     ];
-
-    // Add role-specific items
-    if (user?.role === 'CEO' || user?.role === 'COO' || user?.role === 'CFO') {
-      baseItems.push(
-        {
-          name: 'Financial Impact',
-          href: '/financial',
-          icon: TrendingUp,
-          description: 'Financial metrics and ROI analysis'
-        },
-        {
-          name: 'Strategic Planning',
-          href: '/planning',
-          icon: Calendar,
-          description: 'Strategic planning and forecasting'
-        }
-      );
-    }
-
-    if (user?.role === 'VP Production' || user?.role === 'Plant Head') {
-      baseItems.push(
-        {
-          name: 'Plant Management',
-          href: '/plants',
-          icon: MapPin,
-          description: 'Multi-plant management'
-        },
-        {
-          name: 'Team Management',
-          href: '/team',
-          icon: Users,
-          description: 'Team performance and scheduling'
-        }
-      );
-    }
-
-    if (user?.role === 'VP Supply Chain') {
-      baseItems.push(
-        {
-          name: 'Supply Chain',
-          href: '/supply-chain',
-          icon: Package,
-          description: 'Supply chain optimization'
-        },
-        {
-          name: 'Inventory',
-          href: '/inventory',
-          icon: Package,
-          description: 'Inventory management'
-        }
-      );
-    }
 
     return baseItems;
   };
@@ -203,29 +254,56 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPath, 
         </div>
 
         <nav className="mt-4 px-2">
-          <div className="space-y-1">
-            {navigationItems.map((item) => {
-              const isActive = currentPath === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={onClose}
-                  className={cn(
-                    "group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors h-10",
-                    isActive
-                      ? "bg-primary text-white"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100"
-                  )}
-                >
-                  <item.icon className={cn(
-                    "mr-3 h-5 w-5",
-                    isActive ? "text-white" : "text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400"
-                  )} />
-                  {item.name}
-                </Link>
-              );
-            })}
+          <div className="space-y-4">
+            {(() => {
+              const groupedItems = navigationItems.reduce((groups, item) => {
+                if (!groups[item.group]) {
+                  groups[item.group] = [];
+                }
+                groups[item.group].push(item);
+                return groups;
+              }, {} as Record<string, typeof navigationItems>);
+
+              return Object.entries(groupedItems).map(([groupName, items]) => (
+                <div key={groupName}>
+                  <div className="px-3 mb-2">
+                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      {groupName}
+                    </h3>
+                  </div>
+                  <div className="space-y-1">
+                    {items.map((item) => {
+                      const isActive = currentPath === item.href;
+                      return (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          onClick={onClose}
+                          className={cn(
+                            "group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors h-10",
+                            isActive
+                              ? "bg-primary text-white"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100"
+                          )}
+                        >
+                          <item.icon className={cn(
+                            "mr-3 h-5 w-5",
+                            isActive ? "text-white" : "text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400"
+                          )} />
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <span>{item.name}</span>
+                              <span className="text-xs text-gray-400 ml-2">{item.phase}</span>
+                            </div>
+                            <p className="text-xs text-gray-500 truncate">{item.description}</p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              ));
+            })()}
           </div>
         </nav>
       </div>
@@ -265,31 +343,62 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPath, 
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
-            {navigationItems.map((item) => {
-              const isActive = currentPath === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={cn(
-                    "group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors h-10",
-                    isActive
-                      ? "bg-primary text-white"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100"
+          <nav className="flex-1 px-2 py-4 space-y-4 overflow-y-auto">
+            {(() => {
+              const groupedItems = navigationItems.reduce((groups, item) => {
+                if (!groups[item.group]) {
+                  groups[item.group] = [];
+                }
+                groups[item.group].push(item);
+                return groups;
+              }, {} as Record<string, typeof navigationItems>);
+
+              return Object.entries(groupedItems).map(([groupName, items]) => (
+                <div key={groupName}>
+                  {isExpanded && (
+                    <div className="px-3 mb-2">
+                      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        {groupName}
+                      </h3>
+                    </div>
                   )}
-                  title={!isExpanded ? item.description : undefined}
-                >
-                  <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center">
-                    <item.icon className={cn(
-                      "h-5 w-5",
-                      isActive ? "text-white" : "text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400"
-                    )} />
+                  <div className="space-y-1">
+                    {items.map((item) => {
+                      const isActive = currentPath === item.href;
+                      return (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className={cn(
+                            "group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors h-10",
+                            isActive
+                              ? "bg-primary text-white"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100"
+                          )}
+                          title={!isExpanded ? `${item.description} (${item.phase})` : undefined}
+                        >
+                          <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center">
+                            <item.icon className={cn(
+                              "h-5 w-5",
+                              isActive ? "text-white" : "text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400"
+                            )} />
+                          </div>
+                          {isExpanded && (
+                            <div className="ml-3 flex-1 min-w-0">
+                              <div className="flex items-center justify-between">
+                                <span className="whitespace-nowrap">{item.name}</span>
+                                <span className="text-xs text-gray-400 ml-2">{item.phase}</span>
+                              </div>
+                              <p className="text-xs text-gray-500 truncate">{item.description}</p>
+                            </div>
+                          )}
+                        </Link>
+                      );
+                    })}
                   </div>
-                  {isExpanded && <span className="ml-3 whitespace-nowrap">{item.name}</span>}
-                </Link>
-              );
-            })}
+                </div>
+              ));
+            })()}
           </nav>
 
           {/* User info */}
